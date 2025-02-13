@@ -25,6 +25,7 @@ import { buttonVariants } from "@/components/ui/button";
 import ClientNavigationMenu from "@/components/layout/ClientNavigationMenu";
 import MenuButtonWrapper from "@/components/layout/MenuButtonWrapper";
 import Footer from "@/components/layout/Footer";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Moonlatte",
@@ -38,6 +39,10 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${lato.className}`}>
+      <Head>
+        <link rel="preload" href="/img/home-header-bg.webp" as="image" />
+        <link rel="preload" href="/img/logo.png" as="image" />
+      </Head>
       <body>
 
         <header
