@@ -1,7 +1,6 @@
 "use client"
 import { usePathname } from "next/navigation"
 import Image from "next/image";
-import { cn } from "@/lib/utils"
 
 interface HeaderBackgroundProps {
   children?: React.ReactNode | React.ReactNode[]
