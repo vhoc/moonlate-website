@@ -13,11 +13,11 @@ const HeaderBackground = ({ children }: HeaderBackgroundProps) => {
   const getHeaderBackground = () => {
     switch (pathname) {
       case '/conocenos':
-        return 'bg-[url(/img/conocenos-header-bg.png)]';
+        return 'bg-[url(/img/conocenos-header-bg.webp)]';
       case '/facturacion':
-        return 'bg-[url(/img/facturacion-header-bg.png)]';
+        return 'bg-[url(/img/facturacion-header-bg.webp)]';
       default:
-        return 'bg-[url(/img/home-header-bg.png)] md:bg-[url(/img/home-header-bg-md.png)] xl:bg-[url(/img/home-header-bg-xl.png)]';
+        return 'bg-[url(/img/home-header-bg.webp)] md:bg-[url(/img/home-header-bg-md.webp)] xl:bg-[url(/img/home-header-bg-xl.webp)]';
     }
   };
 
