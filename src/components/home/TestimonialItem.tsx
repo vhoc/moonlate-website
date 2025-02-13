@@ -1,6 +1,5 @@
 import { FaStar } from "react-icons/fa";
 import { playfair } from "@/app/fonts";
-import { cn } from "@/lib/utils";
 
 interface TestimonialItemProps {
   className?: string
