@@ -25,6 +25,7 @@ import { buttonVariants } from "@/components/ui/button";
 import ClientNavigationMenu from "@/components/layout/ClientNavigationMenu";
 import MenuButtonWrapper from "@/components/layout/MenuButtonWrapper";
 import Footer from "@/components/layout/Footer";
+import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Moonlatte",
@@ -38,6 +39,10 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={`${lato.className}`}>
+      <Head>
+        <link rel="preload" href="/img/home-header-bg.webp" as="image" />
+        <link rel="preload" href="/img/logo.png" as="image" />
+      </Head>
       <body>
 
         <header
@@ -127,10 +132,10 @@ export default function RootLayout({
               height={288}
               src={imgLogo}
               alt="Moonlatte Logo"
-              className="w-[69px] h-[69px] md:w-48 md:h-48 xl:w-72 xl:h-72 z-10"
+              className="w-[69px] h-[69px] md:w-48 md:h-48 xl:w-72 xl:h-72"
             />
 
-            <div className="flex flex-col justify-center z-10">
+            <div className="flex flex-col justify-center">
               <div className="flex flex-col justify-center items-center gap-y-2">
                 <h1 className={`${playfair.className} text-4xl md:text-5xl xl:text-7xl font-bold text-white`}>
                   MOONLATTE
