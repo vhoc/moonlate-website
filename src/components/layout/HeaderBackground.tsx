@@ -65,6 +65,7 @@ const HeaderBackground = ({ children }: HeaderBackgroundProps) => {
         style={{ objectFit: 'cover', objectPosition: 'center' }}
         className="block md:hidden"
         priority // Potentially important for LCP on mobile
+        fetchPriority="high" // Potentially important for LCP on mobile
       />
 
       {/* Tablet Image */}

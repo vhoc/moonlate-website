@@ -6,12 +6,14 @@ import { type ReactNode } from "react";
 
 interface HomeSectionProps {
   imageSrc: string | StaticImport;
+  imagePriority?: boolean;
+  imageFetchPriority?: 'high' | 'low';
   title: string
   children?: ReactNode | ReactNode[]
   reverse?: boolean
 }
 
-const HomeSection = ( { imageSrc, title, children, reverse }: HomeSectionProps ) => {
+const HomeSection = ( { imageSrc, imagePriority, imageFetchPriority, title, children, reverse }: HomeSectionProps ) => {
 
   return (
     <section
@@ -32,6 +34,8 @@ const HomeSection = ( { imageSrc, title, children, reverse }: HomeSectionProps )
         height={240}
         alt="Orígenes y Pasión"
         style={{ objectFit: "cover" }}
+        priority={imagePriority}
+        fetchPriority={imageFetchPriority}
         // objectFit="cover"
         className="
         w-[240px] h-[240px] rounded-full

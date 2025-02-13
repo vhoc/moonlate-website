@@ -13,6 +13,8 @@ export default function HomePage() {
 
       <HomeSection
         imageSrc={imgOrigenes}
+        imagePriority
+        imageFetchPriority="high"
         title="Orígenes y Pasión"
       >
         <p
