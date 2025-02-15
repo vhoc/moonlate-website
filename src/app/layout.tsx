@@ -26,7 +26,6 @@ import { buttonVariants } from "@/components/ui/button";
 import ClientNavigationMenu from "@/components/layout/ClientNavigationMenu";
 import MenuButtonWrapper from "@/components/layout/MenuButtonWrapper";
 import Footer from "@/components/layout/Footer";
-import { ViewTransitions } from "next-view-transitions" 
 
 export const metadata: Metadata = {
   title: "Moonlatte",
@@ -39,7 +38,6 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
 
   return (
-    <ViewTransitions>
     <html lang="en" className={`${lato.className}`}>
       <body>
 
@@ -164,6 +162,5 @@ export default function RootLayout({
 
       </body>
     </html>
-    </ViewTransitions>
   );
 }
