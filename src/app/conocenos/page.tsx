@@ -1,8 +1,23 @@
+import MenuSection from "@/components/conocenos/MenuSection";
+import VisitanosSection from "@/components/conocenos/VisitanosSection";
+import CarouselSection from "@/components/home/CarouselSection";
+import OrderNowSection from "@/components/conocenos/OrderNowSection";
+import AppSection from "@/components/conocenos/AppSection";
 
-export default function HomePage() {
+export default function ConocenosPage() {
   return (
-    <main className="">
-      This is the conocenos page.
+    <main >
+
+      <MenuSection/>
+
+      <VisitanosSection/>
+
+      <CarouselSection/>
+
+      <OrderNowSection/>
+
+      <AppSection/>
+
     </main>
   );
 }

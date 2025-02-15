@@ -58,7 +58,7 @@ export default function RootLayout({
                 <SheetHeader className="sm:text-center">
                   <SheetTitle >Menú</SheetTitle>
                 </SheetHeader>
-                <NavigationMenu className={`md:hidden z-10 w-full max-w-full`}>
+                <NavigationMenu className={`md:hidden z-20 w-full max-w-full`}>
                   <NavigationMenuList className="flex flex-col gap-4 mt-8 w-full">
 
                     <NavigationMenuItem className="w-full">
@@ -92,7 +92,7 @@ export default function RootLayout({
 
 
             {/* NAV MENU (TABLET & DESKLTOP) */}
-            <ClientNavigationMenu className="hidden md:block !max-w-full !w-full fixed top-0 py-5 z-10 transition-all duration-300">
+            <ClientNavigationMenu className="hidden md:block !max-w-full !w-full fixed top-0 py-5 z-20 transition-all duration-300">
               <NavigationMenuList className="gap-10">
 
                 <NavigationMenuItem>

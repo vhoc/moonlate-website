@@ -13,7 +13,7 @@ const HeaderBackground = ({ children }: HeaderBackgroundProps) => {
   const getImageSrc = () => {
     switch (pathname) {
       case '/conocenos':
-        return '/img/conocenos-header-bg.webp';
+        return '/img/conocenos-header-bg-xl.png';
       case '/facturacion':
         return '/img/facturacion-header-bg.webp';
       default:

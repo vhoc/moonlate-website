@@ -9,7 +9,7 @@ import imgCompromiso from "@/../public/img/compromiso.png";
 
 export default function HomePage() {
   return (
-    <main className="">
+    <main >
 
       <HomeSection
         imageSrc={imgOrigenes}
