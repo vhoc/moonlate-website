@@ -1,6 +1,4 @@
 import { playfair } from "@/app/fonts"
-import Link from "next/link"
-import { buttonVariants } from "../ui/button"
 import Image from "next/image"
 import imgTiltedPhone from "@/../public/img/tilted-smartphone.png"
 
