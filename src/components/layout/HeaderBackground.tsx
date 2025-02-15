@@ -15,7 +15,7 @@ const HeaderBackground = ({ children }: HeaderBackgroundProps) => {
       case '/conocenos':
         return '/img/conocenos-header-bg-xl.png';
       case '/facturacion':
-        return '/img/facturacion-header-bg.webp';
+        return '/img/facturacion-header-bg-xl.png';
       default:
         return '/img/home-header-bg.webp';
     }
