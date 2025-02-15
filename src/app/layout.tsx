@@ -4,6 +4,7 @@ import { type Metadata } from "next";
 import Image from "next/image";
 import imgLogo from "@/../public/img/logo.png";
 import Link from "next/link";
+import TransitionLink from "@/components/utils/TransitionLink";
 import HeaderBackground from "@/components/layout/HeaderBackground";
 import {
   NavigationMenu,
@@ -25,6 +26,7 @@ import { buttonVariants } from "@/components/ui/button";
 import ClientNavigationMenu from "@/components/layout/ClientNavigationMenu";
 import MenuButtonWrapper from "@/components/layout/MenuButtonWrapper";
 import Footer from "@/components/layout/Footer";
+import { ViewTransitions } from "next-view-transitions" 
 
 export const metadata: Metadata = {
   title: "Moonlatte",
@@ -37,6 +39,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
 
   return (
+    <ViewTransitions>
     <html lang="en" className={`${lato.className}`}>
       <body>
 
@@ -62,7 +65,7 @@ export default function RootLayout({
                   <NavigationMenuList className="flex flex-col gap-4 mt-8 w-full">
 
                     <NavigationMenuItem className="w-full">
-                      <Link href="/" legacyBehavior passHref >
+                      <Link href="/"  passHref >
                         <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${playfair.className} !text-2xl !font-bold !text-ml-primary !w-full`}>
                           MoonLatte
                         </NavigationMenuLink>
@@ -70,7 +73,7 @@ export default function RootLayout({
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
-                      <Link href="/conocenos" legacyBehavior passHref>
+                      <Link href="/conocenos"  passHref>
                         <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${playfair.className} !text-2xl !font-bold !text-ml-primary !w-full`}>
                           Conócenos
                         </NavigationMenuLink>
@@ -78,7 +81,7 @@ export default function RootLayout({
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
-                      <Link href="/facturacion" legacyBehavior passHref>
+                      <Link href="/facturacion"  passHref>
                         <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${playfair.className} !text-2xl !font-bold !text-ml-primary !w-full`}>
                           Facturación
                         </NavigationMenuLink>
@@ -96,27 +99,28 @@ export default function RootLayout({
               <NavigationMenuList className="gap-10">
 
                 <NavigationMenuItem>
-                  <Link href="/" legacyBehavior passHref>
-                    <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${playfair.className} font-bold !text-2xl bg-transparent text-white`} >
+                  <TransitionLink href="/"  passHref>
+                    <span className={`${navigationMenuTriggerStyle()} ${playfair.className} font-bold !text-2xl bg-transparent text-white`} >
                       MoonLatte
-                    </NavigationMenuLink>
-                  </Link>
+                    </span>
+                  </TransitionLink>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link href="/conocenos" legacyBehavior passHref>
-                    <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${playfair.className} font-bold !text-2xl bg-transparent text-white`} >
+                  <TransitionLink href="/conocenos"  passHref>
+                    <span
+                    className={`${navigationMenuTriggerStyle()} ${playfair.className} font-bold !text-2xl bg-transparent text-white`} >
                       Conócenos
-                    </NavigationMenuLink>
-                  </Link>
+                    </span>
+                  </TransitionLink>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <Link href="/facturacion" legacyBehavior passHref>
-                    <NavigationMenuLink className={`${navigationMenuTriggerStyle()} ${playfair.className} font-bold !text-2xl bg-transparent text-white`} >
+                  <TransitionLink href="/facturacion"  passHref>
+                    <span className={`${navigationMenuTriggerStyle()} ${playfair.className} font-bold !text-2xl bg-transparent text-white`} >
                       Facturación
-                    </NavigationMenuLink>
-                  </Link>
+                    </span>
+                  </TransitionLink>
                 </NavigationMenuItem>
 
               </NavigationMenuList>
@@ -160,5 +164,6 @@ export default function RootLayout({
 
       </body>
     </html>
+    </ViewTransitions>
   );
 }
