@@ -36,15 +36,17 @@ const getCarouselImages = (): CarouselImage[] => {
 const CarouselSection = () => {
 
   const images = getCarouselImages()
-  // console.log(images)  
 
   if (images && images.length > 0) {
+    
     return (
-      <section className={`
-        flex justify-center
-        max-w-7xl mx-auto 
-        py-28
-      `}>
+      <section
+        className={
+          `flex justify-center
+          max-w-7xl mx-auto 
+          py-28`
+        }
+      >
         <ClientCarousel
           className="w-full max-w-[240px] sm:max-w-sm md:max-w-xl lg:max-w-[800px] xl:max-w-[1000px]"          
         >

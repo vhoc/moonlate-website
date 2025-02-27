@@ -1,9 +1,17 @@
+"use client"
 import { playfair } from "@/app/fonts"
 import TestimonialItem from "./TestimonialItem"
 import { buttonVariants } from "../ui/button"
 import Link from "next/link"
+import clsx from "clsx"
+import { useInView } from "react-intersection-observer"
 
 const MomentosSection = () => {
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
   return (
     <section
@@ -26,7 +34,14 @@ const MomentosSection = () => {
       </h3>
 
       {/* ITEMs */}
-      <div className="flex flex-col gap-y-20 md:gap-x-8 md:flex-row">
+      <div
+        ref={ref}
+        className={clsx(
+          "flex flex-col gap-y-20 md:gap-x-8 md:flex-row",
+          "slide-in-down",
+          inView ? "is-visible" : ""
+        )}
+      >
 
         <TestimonialItem
           className="flex flex-col items-center md:flex-1"

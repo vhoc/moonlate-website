@@ -16,21 +16,23 @@ import {
 import {
   Sheet,
   SheetContent,
-  // SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { GiHamburgerMenu } from "react-icons/gi";
-import { buttonVariants } from "@/components/ui/button";
 import ClientNavigationMenu from "@/components/layout/ClientNavigationMenu";
 import MenuButtonWrapper from "@/components/layout/MenuButtonWrapper";
 import Footer from "@/components/layout/Footer";
+import HeroContent from "@/components/layout/HeroContent/HeroContent";
 
 export const metadata: Metadata = {
   title: "Moonlatte",
   description: "Wellness & Coffee",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
+  openGraph: {
+    images: '/img/og-moonlatte.png',
+  }
 };
 
 export default function RootLayout({
@@ -124,34 +126,7 @@ export default function RootLayout({
               </NavigationMenuList>
             </ClientNavigationMenu>
 
-            <Image
-              width={288}
-              height={288}
-              src={imgLogo}
-              alt="Moonlatte Logo"
-              className="w-[69px] h-[69px] md:w-48 md:h-48 xl:w-72 xl:h-72 z-10"
-            />
-
-            <div className="flex flex-col justify-center z-10">
-              <div className="flex flex-col justify-center items-center gap-y-2">
-                <h1 className={`${playfair.className} text-4xl md:text-5xl xl:text-7xl font-bold text-white`}>
-                  MOONLATTE
-                </h1>
-                <h2 className={`${playfair.className} text-base md:text-2xl xl:text-4xl text-white`}>
-                  WELLNESS & COFFEE
-                </h2>
-              </div>
-              
-              <div className="flex gap-4 justify-center items-center mt-4">
-                <Link className={`${buttonVariants()}  text-white xl:text-xl xl:font-medium !bg-ml-primary xl:px-8 xl:py-6 uppercase`} href="https://wa.me/message/KVWH2AMAV43AL1" target="_blank">
-                  Ordenar ahora
-                </Link>
-
-                <Link className={`text-white xl:text-xl xl:font-medium xl:px-8 xl:py-6 uppercase`} href="/conocenos">
-                  Conócenos
-                </Link>
-              </div>
-            </div>
+            <HeroContent />
 
           </HeaderBackground>
         </header>

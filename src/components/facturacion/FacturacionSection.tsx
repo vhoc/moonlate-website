@@ -1,11 +1,24 @@
 
+"use client";
 import { playfair } from "@/app/fonts";
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
 import Image from "next/image";
 import imgFacturacion from "@/../public/img/facturacion-illustration.png";
+import clsx from "clsx";
+import { useInView } from "react-intersection-observer";
 
 const FacturacionSection = () => {
+
+  const { ref: refLeft, inView: leftInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  const { ref: refRight, inView: rightInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+
   return (
     <section
         className="
@@ -25,14 +38,27 @@ const FacturacionSection = () => {
 
         <div className="flex flex-col md:flex-row-reverse text-center justify-center w-full max-w-7xl xl:px-28">
 
-          <div className="flex flex-col md:flex-1 justify-center items-center xl:gap-y-6">
+          <div
+            ref={refLeft}
+            className={clsx(
+              "flex flex-col md:flex-1 justify-center items-center xl:gap-y-6",
+              "slide-in-right",
+              leftInView ? "is-visible" : ""
+            )}
+          >
             <p className="md:text-xl xl:text-xl max-w-[496px]">
             Para generar tu factura por favor llega el formulario de abajo y te la haremos llegar lo antes posible.
-            </p>
-            
+            </p>            
           </div>
 
-          <div className="hidden md:flex md:justify-center md:items-center md:flex-1">
+          <div
+            ref={refRight}
+            className={clsx(
+              "hidden md:flex md:justify-center md:items-center md:flex-1",
+              "slide-in-left",
+              rightInView ? "is-visible" : ""
+            )}
+          >
             <Image
               src={imgFacturacion}
               width={200}

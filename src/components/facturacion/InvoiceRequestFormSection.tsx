@@ -1,3 +1,4 @@
+"use client";
 import { playfair } from "@/app/fonts"
 import { Input } from "../ui/input"
 import Link from "next/link"
@@ -9,8 +10,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { useInView } from "react-intersection-observer";
+import clsx from "clsx";
 
 const InvoiceRequestFormSection = () => {
+
+  const { ref: refLeft, inView: leftInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  const { ref: refRight, inView: rightInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
   return (
     <section
@@ -32,7 +45,14 @@ const InvoiceRequestFormSection = () => {
       <div className="flex flex-col md:flex-row justify-center items-center w-full max-w-5xl gap-2">
 
         {/* XL: LEFT SECTION OF THE FORM */}
-        <div className="flex flex-col w-full gap-2">
+        <div
+          ref={refLeft}
+          className={clsx(
+            "flex flex-col w-full gap-2",
+            "slide-in-right",
+            leftInView ? "is-visible" : ""
+          )}
+        >
           <Input placeholder="Razón social" className="bg-white text-base" />
           <Input placeholder="Dirección fiscal" className="bg-white text-base" />
           <Input placeholder="RFC" className="bg-white text-base" />
@@ -40,7 +60,14 @@ const InvoiceRequestFormSection = () => {
         </div>
 
         {/* XL: RIGHT SECTION OF THE FORM */}
-        <div className="flex flex-col w-full gap-2">
+        <div
+          ref={refRight}
+          className={clsx(
+            "flex flex-col w-full gap-2",
+            "slide-in-left",
+            rightInView ? "is-visible" : ""
+          )}
+        >
           <Input placeholder="Uso del CFDI" className="bg-white text-base" />
           <Select>
             <SelectTrigger className="bg-white">

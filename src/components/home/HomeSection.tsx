@@ -1,8 +1,10 @@
-
+"use client";
 import Image from "next/image";
 import { playfair } from "@/app/fonts";
 import { type StaticImport } from "next/dist/shared/lib/get-img-props";
 import { type ReactNode } from "react";
+import clsx from "clsx";
+import { useInView } from "react-intersection-observer";
 
 interface HomeSectionProps {
   imageSrc: string | StaticImport;
@@ -15,6 +17,16 @@ interface HomeSectionProps {
 
 const HomeSection = ( { imageSrc, imagePriority, imageFetchPriority, title, children, reverse }: HomeSectionProps ) => {
 
+  const { ref: refImg, inView: imgInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  const { ref: refBody, inView: bodyInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  
   return (
     <section
       className={`
@@ -29,6 +41,7 @@ const HomeSection = ( { imageSrc, imagePriority, imageFetchPriority, title, chil
     >
 
       <Image
+        ref={refImg}
         src={imageSrc}
         width={240}
         height={240}
@@ -36,15 +49,21 @@ const HomeSection = ( { imageSrc, imagePriority, imageFetchPriority, title, chil
         style={{ objectFit: "cover" }}
         priority={imagePriority}
         fetchPriority={imageFetchPriority}
-        // objectFit="cover"
-        className="
-        w-[240px] h-[240px] rounded-full
-        md:w-[380px] md:h-[380px] md:rounded-none 
-        lg:w-[509px] lg:h-[480px]
-        "
+        className={clsx(
+          "w-[240px] h-[240px] rounded-full md:w-[380px] md:h-[380px] md:rounded-none lg:w-[509px] lg:h-[480px]",
+          reverse ? "slide-in-right" : "slide-in-left",
+          imgInView ? "is-visible" : ""
+        )}
       />
 
-      <div className="flex flex-col gap-4 w-full max-w-[428px] xl:max-w-[469px]">
+      <div
+        ref={refBody}
+        className={clsx(
+          "flex flex-col gap-4 w-full max-w-[428px] xl:max-w-[469px]",
+          reverse ? "slide-in-left" : "slide-in-right",
+          bodyInView ? "is-visible" : ""
+        )}
+      >
         <h3
           className={`
           ${playfair.className} w-full font-bold text-2xl text-center text-[#384B6B] 
